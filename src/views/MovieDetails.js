@@ -40,7 +40,7 @@ export default function MovieDetails() {
             alt="movie"
           />
         </div>
-        <div>
+        <div className="movieDescription">
           <h2>{movie.title}</h2>
           <p>User score: {movie.vote_average * 10}%</p>
           <h3>Overview</h3>

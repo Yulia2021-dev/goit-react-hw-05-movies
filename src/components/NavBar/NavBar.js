@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import { Container } from "../../App.styled";
 import { NavList, NavItem } from "./Navbar.styled";
 
+import "./navBar.css";
+
 export default function NavBar() {
   const activeLink = ({ isActive }) => ({
     color: isActive ? "red" : "grey",
@@ -16,12 +18,12 @@ export default function NavBar() {
         <nav>
           <NavList>
             <NavItem>
-              <NavLink style={activeLink} to="/">
+              <NavLink className="navLink" style={activeLink} to="/">
                 Home
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink style={activeLink} to="/movies">
+              <NavLink className="navLink" style={activeLink} to="/movies">
                 Movies
               </NavLink>
             </NavItem>

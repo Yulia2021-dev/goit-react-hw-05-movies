@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css } from "@emotion/react";
 
 export const GlobalStyles = css`
   html {
@@ -8,9 +8,9 @@ export const GlobalStyles = css`
 
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-      'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
     background-color: #f2f2f2;
     min-height: 100vh;
   }
@@ -41,6 +41,7 @@ export const GlobalStyles = css`
     display: block;
     max-width: 100%;
     height: auto;
+    margin: 50px;
   }
 
   button {
