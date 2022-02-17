@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ApiService } from "../../service/movie-api";
+import s from "./cast.module.css";
 
 export default function Cast() {
   const [credits, setCredits] = useState([]);
@@ -15,24 +16,30 @@ export default function Cast() {
   credits && console.log(credits);
 
   return (
-    <div>
-      {credits.map((item) => (
-        <CreditItem key={item.id} actor={item} />
-      ))}
-    </div>
-  );
-}
-
-function CreditItem({ actor }) {
-  let imageUrl =
-    actor.profile_path === null
-      ? "https://via.placeholder.com/185x278.png?text=No+Photo"
-      : `https://image.tmdb.org/t/p/w185/${actor.profile_path}`;
-  return (
-    <div>
-      <img width={185} src={imageUrl} alt="actor" />
-      <p>{actor.name}</p>
-      <p>Character: {actor.character}</p>
-    </div>
+    <>
+      <div className={s.cast}>
+        <ul className={s.castList}>
+          {credits.map(({ id, name, character, profile_path }) => (
+            <li className={s.castItem} key={id}>
+              <img
+                className={s.image}
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w185/${profile_path}`
+                    : // ? `${URL.IMAGE}${profile_path}`
+                      "https://via.placeholder.com/185x278.png?text=No+Photo"
+                }
+                alt={name}
+              />
+              <div className={s.description}>
+                <h5>{name}</h5>
+                <p className={s.character}>Character: {character}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p>We don't have any cast information for this movie.</p>
+    </>
   );
 }

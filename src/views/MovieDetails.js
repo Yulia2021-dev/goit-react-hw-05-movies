@@ -4,6 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 import { ApiService } from "../service/movie-api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
 
 const initial = {
   id: 1,
@@ -40,7 +41,7 @@ export default function MovieDetails() {
             alt="movie"
           />
         </div>
-        <div>
+        <div className="movieDescription">
           <h2>{movie.title}</h2>
           <p>User score: {movie.vote_average * 10}%</p>
           <h3>Overview</h3>
@@ -67,3 +68,10 @@ export default function MovieDetails() {
     </div>
   );
 }
+
+MovieDetails.propTypes = {
+  title: PropTypes.string,
+  vote_average: PropTypes.number,
+  overview: PropTypes.string,
+  genres: PropTypes.array,
+};

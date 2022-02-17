@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Gallery, GalleryItem, MoviePoster } from "./ImageGallery.styled";
 
 export default function ImageGallery({ data }) {
@@ -12,7 +12,7 @@ export default function ImageGallery({ data }) {
             alt="movie"
           />
           <h3>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+            <NavLink to={`/movies/${movie.id}`}>{movie.title}</NavLink>
           </h3>
         </GalleryItem>
       ))}
