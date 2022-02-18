@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { ApiService } from "../service/movie-api";
-import ImageGallery from "../components/ImageGallery/ImageGallery";
+import MovieGallery from "../components/MovieGallery/MovieGallery";
 
 import { Section, Container, SectionTitle } from "../App.styled";
 
 export default function HomePage() {
-  const [result, setResult] = useState(null);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const apiService = new ApiService();
-    apiService.trendingMovies().then((movies) => setResult(movies));
+    apiService.trendingMovies().then((movies) => setMovies(movies));
   }, []);
-
-  result && console.log(result);
 
   return (
     <Section>
       <Container>
         <SectionTitle>Trending Movies</SectionTitle>
-        {result && <ImageGallery data={result} />}
+        {movies && <MovieGallery movies={movies} />}
       </Container>
     </Section>
   );

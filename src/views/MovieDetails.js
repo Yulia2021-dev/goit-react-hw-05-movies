@@ -6,19 +6,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 
-const initial = {
-  id: 1,
-  title: "",
-  poster_path: "",
-  vote_average: 0,
-  overview: "",
-  genres: [{ name: "" }],
-};
-
 export default function MovieDetails() {
-  const [movie, setMovie] = useState(initial);
-  let params = useParams();
-  const movieId = params.movieId;
+  const [movie, setMovie] = useState({
+    id: 1,
+    title: "",
+    poster_path: "",
+    vote_average: 0,
+    overview: "",
+    genres: [{ name: "" }],
+  });
+
+  let { movieId } = useParams();
   console.log(movieId);
 
   useEffect(() => {
