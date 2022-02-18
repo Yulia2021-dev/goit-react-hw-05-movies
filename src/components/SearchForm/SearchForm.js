@@ -1,4 +1,3 @@
-import { faToiletPaperSlash } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
 import { ApiService } from "../../service/movie-api";
 import MovieGallery from "../MovieGallery/MovieGallery";
