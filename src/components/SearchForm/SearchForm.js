@@ -1,17 +1,17 @@
 import { faToiletPaperSlash } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
 import { ApiService } from "../../service/movie-api";
-import ImageGallery from "../ImageGallery/ImageGallery";
+import MovieGallery from "../MovieGallery/MovieGallery";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./searchForm.css";
 
 export default function SearchForm() {
-  const [result, setResult] = useState(null);
+  const [movies, setMovies] = useState([]);
   const api = new ApiService();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const searchQuery = myRef.current.value;
 
     // if (searchQuery.trim() === "") {
@@ -20,7 +20,7 @@ export default function SearchForm() {
     // }
     api
       .searchMovie(searchQuery)
-      .then((movies) => setResult(movies))
+      .then((movies) => setMovies(movies))
       .finally((myRef.current.value = ""));
   };
   const myRef = useRef("");
@@ -37,7 +37,7 @@ export default function SearchForm() {
         />
         <input type="submit" value="Search" id="submit" />
       </form>
-      {result && <ImageGallery data={result} />}
+      <MovieGallery movies={movies} />
     </section>
   );
 }
